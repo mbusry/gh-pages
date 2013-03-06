@@ -62,15 +62,17 @@ window.addEventListener("DOMContentLoaded", function(){
 	// saving the data from the field inputs to localstorage with a unique key for each page
 	function saveData(key){
 		// Looking to see if there is a key
+		alert("We just entered the saveData and received key " + key);
 		if(!key){
 			var uniqueKey = Math.floor(Math.random()*100000001)
+			alert("saveData funcation: This was no key, so I just made one " + uniqueKey);
 		}else{
 		// If there is a key id=key
 			uniqueKey = key;
+			alert("saveData function:  There was a key and it is: " + uniqueKey)
 		}
 		//Collect data in an object with label and 
 		getGroceries();
-
 		var item = {};
 			item.assigned = ["Assigned to:", getID('assignedPerson').value];
 			item.email = ["eMail:", getID('email').value];
@@ -86,6 +88,7 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// Gets the data from the form on the page.
 	function getPageData(){
+		alert("I'm in the getPageData Funciton");
 		toggleControls("on");
 		if(localStorage.length === 0){
 			alert("There is no data.  Loading default data.");
@@ -104,9 +107,12 @@ window.addEventListener("DOMContentLoaded", function(){
 			var linksLi = document.createElement("li");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
+			alert("var key: " + key);
 			var value = localStorage.getItem(key);
+			alert("localStorage.getItem(key) " +value) ;
 			// taking the string from local storage and putting it back into objects
 			var obj = JSON.parse(value);
+			alert("JSON.parse(value) = " + obj);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
 			getImage(obj.assigned[1],makeSubList);
@@ -118,6 +124,7 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 			}
+			alert("I'm about to go to makegroceries and I have the key " + localStorage.key(i) + " and linksLi: " + linksLi);
 			makeGrocLinks(localStorage.key(i), linksLi);
 			//Creates edit and delete links in each item for local storage.
 			//This is in the loop for the grocery list NOT the items.
@@ -145,6 +152,7 @@ window.addEventListener("DOMContentLoaded", function(){
 		var editLink = document.createElement('a');
 		editLink.href = "#";
 		editLink.key = key;
+		alert("makeGrocLinks " + key);
 		var editText = "Edit Groceries";
 		editLink.addEventListener("click", editGroceries);
 		editLink.innerHTML = editText;
@@ -178,19 +186,24 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// This edits our grocery list
 	function editGroceries(){
+		alert("editGroceries function");
 		// Retrieve from local storage
 		var value = localStorage.getItem(this.key);
+		alert(value);
 		// the opposite of stringify
-		var item = JSON.parse(value); 
+		var item = JSON.parse(value);
+		alert(item);
 		
 		// Hide displayed items and show the form
 		toggleControls("off");
 		
 		// fill in the form with localStorage
-		getID('assigned').value = item.assigned[1];
-		getID('email').value = item.assigned[1];
+		getID('assignedPerson').value = item.assigned[1];
+		getID('email').value = item.email[1];
 		getID('shop').value = item.shop[1];
 		getID('when').value = item.when[1];
+		getID('groceryItem').value = item.groceryItem[1];
+		//item.groceryItem = ["Grocery Item:", groceryItemValue];
 		getID('qty').value = item.qty[1];
 		getID('notes').value = item.notes[1];
 		
