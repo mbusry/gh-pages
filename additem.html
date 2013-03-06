@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Fullsail,Visual Framworks,Project 1,To Do List,mobile development, html5" />
+    <meta name="description" content="Project 1 for Visual Frameworks creating a to do list"  />
+    <meta name="robots" content="noindex, no follow" />
+    <meta name="viewport" content="user-scalable=no, width=device-width" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="Mobile Optimized" content="320" />
+    <title>HTML5, here we come.</title>
+
+</head>
+<body id="htmlBody">
+        <h1>To Do List</h1>
+<form  action="#" method="post" id="firstForm">
+	<fieldset id="groceryFieldset">
+		<legend>To Do List</legend>
+		<span>* fields are required.</span>
+		<ul id="errorMsg"></ul>
+        	<label for="assigned">Assigned to:</label>
+            <select id="assignedPerson">
+            	<option value="Mom">Mom</option>
+                <option value="Dad">Dad</option>
+                <option value="Dylan">Dylan</option>
+			</select>                    
+        <ul>
+        	<li><label for="email">Email:</label><input type="email" id="email" placeholder="jon@me.com"/></li>
+        	<li><label for="shop">Where to shop:</label><input type="text" id="shop" /></li>
+        	<li><label for="when">When is it needed:</label><input type="date" id="when" /></li>
+        </ul>
+        <ul>
+        	<li>Item(s)
+                <li><input type="radio"  value="Fruit" id="fruit" name = "groceryItem" /><label for="fruit">Fruit</label></li>
+                <li><input type="radio"  value="Veggie" id="veg" name = "groceryItem" /><label for="veg">Vegetable</label></li>
+                <li><input type="radio"  value="Diary" id="diary" name = "groceryItem" /><label for="diary">Diary</label></li>
+                <li><input type="radio"  value="Meat" id="meat" name = "groceryItem" /><label for="meat">Meat</label></li>
+                <li><input type="radio"  value="Snack" id="snack" name = "groceryItem"/><label for="snack">Snack</label></li>
+        	</li>
+        </ul>
+            Item Quantity: <input type="range" id="qty" name="qty" min="1" max="10" step ="1" value = "1">
+        <ul>
+            <li><label for="notes">*Notes/Instructios</label><textarea id="notes"></textarea></li>
+            <li><input type="hidden" value="true" /></li>         
+        </ul>
+    </fieldset>
+	<input type="button" id="saveButton" value="Save it." />
+
+</form>
+
+<a href="#" id="eraseList">Erase the List</a> |
+<a href="#" id="showList">Show me the List</a> 
+<a href="additem.html" id="addNew" style = "display:none;"> Add New Item</a>
+
+
+    <link href="css/styles.css" rel="stylesheet" type="text/css" />
+    <script src="js/json.js" type="text/javascript"></script>
+    <script src="js/main.js" type="text/javascript"></script>
+
+
+</body>
+</html>
