@@ -1,17 +1,21 @@
-/* Main CSS style sheet.  Michael Usry Visual Frameworks Project II  */
+/* Main CSS style sheet.  Michael Usry MiU 0313  */
 
 * 	{
 	list-style: none;
 }
 
 body {
-	background-color: #a6a6a6;
-	letter-spacing: .1em;
+	background-image:  url(../images/background.png);
 }
+
 
 #errorMsg{
 	font-size: 22px;
 	color:red;
+}
+
+img.center {
+	display: block; margin-left: auto; margin-right: auto; 
 }
 
 p {
@@ -23,11 +27,10 @@ h1 {
 	margin: 0px;
 	border: 1px solid #000;
 	font-family: Verdana, Geneva, sans-serif;
-	font-size: 22px;
+	font-size: 24px;
 	font-style: normal;
 	color: black;
 	text-align: center;
-	background-color: #fff;
 	width: 100%;
 
 }

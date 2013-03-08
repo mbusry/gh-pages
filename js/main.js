@@ -2,28 +2,16 @@
 
 // load HTML first then execute this file
 window.addEventListener("DOMContentLoaded", function(){
+	
+	// Global variables
+	var 	groceryItemValue;
+
 
 
 	// getElementByID function shorthand
 	function getID(x){
 		var elementID = document.getElementById(x);
 		return elementID;
-	};
-
-	// Select field elements and populate
-	function fieldElements(){
-		var formTag = document.getElemenetByTagName("form"),
-			selectLi = getID('select'),
-			makeSelect = document.createElement('select');			
-			makeSelect.setAttribute("id","groups");
-		for(var i=0, n=contactGroups.length; i<n; i++){
-			var makeOption = document.createElement('option');
-			var optText = contactGroups[i];
-			makeOption.setAttribute("value", optText);
-			makeOption.innerHTML = optText;
-			makeSelect.appendChild(makeOption);
-		}
-		selectLi.appendChild(makeSelect);
 	};
 	
 	//  switching page control views in css
@@ -49,46 +37,55 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// function to find the radio button
 	function getGroceries(){
-		var groc = document.forms[0].groceryItem
+		alert("Now in getGroceries");
+		var groc = document.forms[0].groceryItem;
 		//looking at the 'html document','form' on the page
 		//'groceryItem' is from the name= in the form for the buttons
-		for(i=0; i<groc.length; i++){
+		for(var i=0; i<groc.length; i++){
 			if(groc[i].checked){
-			groceryItemValue = groc[i].value;
+				groceryItemValue = groc[i].value;
 			}
 		}
+		alert("end of getgroceries " + groceryItemValue);
+
 	};
 	
 	// saving the data from the field inputs to localstorage with a unique key for each page
 	function saveData(key){
+
 		// Looking to see if there is a key
-		alert("We just entered the saveData and received key " + key);
 		if(!key){
-			var uniqueKey = Math.floor(Math.random()*100000001)
-			alert("saveData funcation: This was no key, so I just made one " + uniqueKey);
+			var uniqueKey = Math.floor(Math.random()*100000001);
 		}else{
 		// If there is a key id=key
 			uniqueKey = key;
-			alert("saveData function:  There was a key and it is: " + uniqueKey)
 		}
-		//Collect data in an object with label and 
+		//Collect data in an object with label and
 		getGroceries();
 		var item = {};
 			item.assigned = ["Assigned to:", getID('assignedPerson').value];
 			item.email = ["eMail:", getID('email').value];
 			item.shop = ["Shop:", getID('shop').value];
 			item.when = ["When:", getID('when').value];
-			item.qty = ["Quantity:", getID('qty').value];			
 			item.groceryItem = ["Grocery Item:", groceryItemValue];
+			item.qty = ["Quantity:", getID('qty').value];			
 			item.notes = ["Notes:", getID('notes').value];
 			// Saving object to a string using Stringify
 			localStorage.setItem(uniqueKey, JSON.stringify(item));
 			alert("The List has been saved.");
 	};
+		// Getting image for the person assigned to
+	function getImage(assignedName, makeSubList){
+		var imageLi = document.createElement('li');
+		makeSubList.appendChild(imageLi);
+		var newImage = document.createElement('img');
+		var setSrc = newImage.setAttribute("src", "images/" + assignedName + ".png");
+		imageLi.appendChild(newImage);
+	};
 	
 	// Gets the data from the form on the page.
 	function getPageData(){
-		alert("I'm in the getPageData Funciton");
+
 		toggleControls("on");
 		if(localStorage.length === 0){
 			alert("There is no data.  Loading default data.");
@@ -102,17 +99,14 @@ window.addEventListener("DOMContentLoaded", function(){
 		document.body.appendChild(makeDiv);
 		getID('items').style.display = "block";
 		// runs for every item
-		for(i=0, len=localStorage.length;i<len;i++){
+		for(var i=0, len=localStorage.length; i<len;i++){
 			var makeli = document.createElement("li");
 			var linksLi = document.createElement("li");
 			makeList.appendChild(makeli);
 			var key = localStorage.key(i);
-			alert("var key: " + key);
 			var value = localStorage.getItem(key);
-			alert("localStorage.getItem(key) " +value) ;
 			// taking the string from local storage and putting it back into objects
 			var obj = JSON.parse(value);
-			alert("JSON.parse(value) = " + obj);
 			var makeSubList = document.createElement('ul');
 			makeli.appendChild(makeSubList);
 			getImage(obj.assigned[1],makeSubList);
@@ -124,35 +118,39 @@ window.addEventListener("DOMContentLoaded", function(){
 				makeSubLi.innerHTML = optSubText;
 				makeSubList.appendChild(linksLi);
 			}
-			alert("I'm about to go to makegroceries and I have the key " + localStorage.key(i) + " and linksLi: " + linksLi);
 			makeGrocLinks(localStorage.key(i), linksLi);
 			//Creates edit and delete links in each item for local storage.
 			//This is in the loop for the grocery list NOT the items.
 		}
 	};
-	// Getting image for the person assigned to
-	function getImage(assignedName, makeSubList){
-		var imageLi = document.createElement('li');
-		makeSubList.appendChild(imageLi);
-		var newImage = document.createElement('img');
-		var setSrc = newImage.setAttribute("src", "images/" + assignedName + ".png");
-		imageLi.appendChild(newImage);
-	};
 	
 	// Loading default data from json.js from additem.html
 	function loadDefaultData(){
+
+		// loading from json.js
 		for(var i in json){
-			var uniqueKey = Math.floor(Math.random()*100000001);
-			localStorage.setItem(uniqueKey,JSON.stringify(json[i]));
+			var id = Math.floor(Math.random()*100000001);
+			localStorage.setItem(id,JSON.stringify(json[i]));
 		}
 	};
-	
+
+	function deleteGroceries(){
+		var ask = confirm("Are you sure you want to delete this?");
+		if(ask){
+			localStorage.removeItem(this.key);
+			alert("It was deleted");
+			window.location.reload();
+		}
+			alert("You didn't delete it.");
+		
+	};
+
 	// creating the links for edit and delete for each item in local storage
 	function makeGrocLinks(key, linksLi){
+
 		var editLink = document.createElement('a');
 		editLink.href = "#";
 		editLink.key = key;
-		alert("makeGrocLinks " + key);
 		var editText = "Edit Groceries";
 		editLink.addEventListener("click", editGroceries);
 		editLink.innerHTML = editText;
@@ -169,57 +167,12 @@ window.addEventListener("DOMContentLoaded", function(){
 		deleteLink.key = key;
 		var deleteText = "Delete Groceries";
 		deleteLink.innerHTML = deleteText;
-		deleteLink.addEventListener("click", deleteGroceries); // will delete the grocerlist item
+		// will delete the grocerlist item
+		deleteLink.addEventListener("click", deleteGroceries); 
 		linksLi.appendChild(deleteLink);
 	};
-	
-	function deleteGroceries(){
-		var ask = confirm("Are you sure you want to delete this?");
-		if(ask){
-			localStorage.removeItem(this.key)
-			alert("It was deleted");
-			window.location.reload();
-		}else{
-			alert("You didn't delete it.");
-		}
-	};
-	
-	// This edits our grocery list
-	function editGroceries(){
-		alert("editGroceries function");
-		// Retrieve from local storage
-		var value = localStorage.getItem(this.key);
-		alert(value);
-		// the opposite of stringify
-		var item = JSON.parse(value);
-		alert(item);
-		
-		// Hide displayed items and show the form
-		toggleControls("off");
-		
-		// fill in the form with localStorage
-		getID('assignedPerson').value = item.assigned[1];
-		getID('email').value = item.email[1];
-		getID('shop').value = item.shop[1];
-		getID('when').value = item.when[1];
-		getID('groceryItem').value = item.groceryItem[1];
-		//item.groceryItem = ["Grocery Item:", groceryItemValue];
-		getID('qty').value = item.qty[1];
-		getID('notes').value = item.notes[1];
-		
-		// removing the addEventListener from the 'save contact' button
-		save.removeEventListener("click", saveData);
-		
-		// now change the submit (saveButton) value to edit
-		getID('saveButton').value = "Edit List";
-		var editSubmit = getID('saveButton');
-		
-		// saving the key value so we can save edited groceries
-		editSubmit.addEventListener("click", validate);
-		editSubmit.key = this.key;
-	}
-		
 	function validate(e){
+
 	// Elements we want to validate
 		var getNotes = getID('notes');
 		
@@ -250,12 +203,11 @@ window.addEventListener("DOMContentLoaded", function(){
 			// .key comes from editGroceries as
 			saveData(this.key);
 		}
-	};
-		
+	};	
 	// clear local storage function
 	function clearLocal(){
 		if(localStorage.length === 0){
-		alert("There is no data to clear.")
+		alert("There is no data to clear.");
 		}else{
 			
 		localStorage.clear();
@@ -264,9 +216,53 @@ window.addEventListener("DOMContentLoaded", function(){
 		return false;
 		}
 	};
+	
+	// This edits our grocery list
+	function editGroceries(){
+		// Retrieve from local storage
+		var value = localStorage.getItem(this.key);
+		// the opposite of stringify
+		var item = JSON.parse(value);		
+		// Hide displayed items and show the form
+		toggleControls("off");
+		getGroceries();
 
-	// Global variables
-	var 	groceryItemValue;
+		// fill in the form with localStorage
+		getID('assignedPerson').value = item.assigned[1];
+		getID('email').value = item.email[1];
+		getID('shop').value = item.shop[1];
+		getID('when').value = item.when[1];
+		getID('qty').value = item.qty[1];
+		getID('notes').value = item.notes[1];
+		//var groceryItemValue = document.forms[0].groceryItem;
+		alert("in editgroceries after back from getgroceries " + groceryItemValue);
+
+		// checking the correct radio button
+		for(var i=0; i<groceryItemValue.length; i++){
+			if(groceryItem[i].value ==="Fruit" && obj.groceryItem[i] =="fruit"){
+				groceryItem[i].setAttribute("checked","checked");
+			}else if(groceryItem[i].value ==="Veggie" && obj.groceryItem[i] =="veg"){
+				groceryItem[i].setAttribute("checked","checked");
+			}else if(groceryItem[i].value ==="Dairy" && obj.groceryItem[i] =="Dairy"){
+				groceryItem[i].setAttribute("checked","checked");
+			}else if(groceryItem[i].value ==="Meat" && obj.groceryItem[i] =="meat"){
+				groceryItem[i].setAttribute("checked","checked");
+			}else if(groceryItem[i].value ==="Snack" && obj.groceryItem[i] =="snack"){
+				groceryItem[i].setAttribute("checked","checked");
+			}				
+		}
+
+		// removing the addEventListener from the 'save contact' button
+		save.removeEventListener("click", saveData);
+		
+		// now change the submit (saveButton) value to edit
+		getID('saveButton').value = "Edit List";
+		var editSubmit = getID('saveButton');
+		
+		// saving the key value so we can save edited groceries
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
+	};
 
 	// click on links and save button
 	var save = getID("saveButton");
