@@ -37,21 +37,14 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// function to find the radio button
 	function getGroceries(){
-		alert("Now in getGroceries");
 		var groc = document.forms[0].groceryItem;
-		alert(groc);
-		alert("groc.length: " + groc.length);
 		//looking at the 'html document','form' on the page
 		//'groceryItem' is from the name= in the form for the buttons
 		for(var i=0; i<groc.length; i++){
-			alert(groc[i].value);
 			if(groc[i].checked){
 				groceryItemValue = groc[i].value;
-				alert(groceryItemValue);
 			}
 		}
-		alert("end of getgroceries value is: " + groceryItemValue);
-
 	};
 	
 	// saving the data from the field inputs to localstorage with a unique key for each page
@@ -136,7 +129,6 @@ window.addEventListener("DOMContentLoaded", function(){
 			var id = Math.floor(Math.random()*100000001);
 			localStorage.setItem(id,JSON.stringify(json[i]));
 		}
-		//alert("leaving loadDefaultData");
 	};
 
 	function deleteGroceries(){
@@ -224,17 +216,12 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// This edits our grocery list
 	function editGroceries(){
-		alert("now in the editGroceries");
-		//Retrieve from local storage
+		// Retrieve from local storage
 		var value = localStorage.getItem(this.key);
-		//alert(value);
 		// the opposite of stringify
-		var item = JSON.parse(value);
-		//alert(item);
+		var item = JSON.parse(value);		
 		// Hide displayed items and show the form
 		toggleControls("off");
-		alert("about to enter getGroceries from editGroceries");
-		getGroceries();
 
 		// fill in the form with localStorage
 		getID('assignedPerson').value = item.assigned[1];
@@ -243,11 +230,9 @@ window.addEventListener("DOMContentLoaded", function(){
 		getID('when').value = item.when[1];
 		getID('qty').value = item.qty[1];
 		getID('notes').value = item.notes[1];
-		//groceryItemValue = document.forms[0].groceryItem;
-		alert("in editgroceries after back from getgroceries " + groceryItemValue);
-
+		var groceryItem = document.forms[0].groceryItem;
 		// checking the correct radio button
-		for(var i=0; i<groceryItemValue.length; i++){
+		for(var i=0; i<groceryItem.length; i++){
 			if(groceryItem[i].value ==="Fruit" && obj.groceryItem[i] =="fruit"){
 				groceryItem[i].setAttribute("checked","checked");
 			}else if(groceryItem[i].value ==="Veggie" && obj.groceryItem[i] =="veg"){
