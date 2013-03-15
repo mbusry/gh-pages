@@ -38,7 +38,6 @@ window.addEventListener("DOMContentLoaded", function(){
 	
 	// function to find the radio button
 	function getGroceries(){
-		alert("Now in getGroceries");
 		var groc = document.forms[0].groceryItem;
 		//looking at the 'html document','form' on the page
 		//'groceryItem' is from the name= in the form for the buttons
@@ -47,7 +46,6 @@ window.addEventListener("DOMContentLoaded", function(){
 				groceryItemValue = groc[i].value;
 			}
 		}
-		alert("end of getgroceries " + groceryItemValue);
 
 	};
 	
@@ -236,7 +234,6 @@ window.addEventListener("DOMContentLoaded", function(){
 		getID('qty').value = item.qty[1];
 		getID('notes').value = item.notes[1];
 		//var groceryItemValue = document.forms[0].groceryItem;
-		alert("in editgroceries after back from getgroceries " + groceryItemValue);
 
 		// checking the correct radio button
 		for(var i=0; i<groceryItemValue.length; i++){
