@@ -1,0 +1,551 @@
+<!doctype html>
+<!--Michael Usry, MiU, Project 1 0313 -->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="keyword" content="Fullsail,Mobile Interface & Usability,Project 2,To Do List,mobile development, html5" />
+        <meta name="description" content="Project 2 for MiU"  />
+        <meta name="robots" content="index, no follow" />
+        <meta name ="viewport" content="user-scalable=no, width=device-width" />
+        <title>iWill</title>
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+
+        <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+        <script src="js/libs/jquery.validate.min.js"></script>
+
+    </head>
+
+    <body>
+        <!--MAIN PAGE START -->
+        <div data-role = "page" id ="main">
+            <div class = "cta">
+                <a href = "#add"><img src = "images/cta2.png" class = "cta" /></a>
+            </div>
+
+            <div data-role="container">
+                <input type="search" id="search" value="search">
+            </div>
+
+            <div data-role = "fieldcontain" data-theme="a" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-inset = "true">
+                <h3>
+                <center>
+                    Browse
+                </center></h3>
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <a href ="#browseWho">Who's getting it?</a>
+                    </li>
+                    <li>
+                        <a href = "#whereToShop">Where to get it?</a>
+                    </li>
+                    <li>
+                        <a href = "#browseWhat">What to get?</a>
+                    </li>
+
+                    <li>
+                        <a href = "#browseDate">When to get it?</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main" class = "ui-btn-active">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add" >Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- *********************** END OF MAIN PAGE ***********************-->
+
+        <!-- *********************** START OF ADD PAGE ***********************-->
+
+        <!--addItem Function Where to pick up page start -->
+        <div data-role="page" id ="addItem" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+            <div>
+                <h2>To Do List</h2>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add" class = "ui-btn-active">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of addItem Where to Pick up Function page -->
+
+        <!--browseWhat Function Where to pick up page start -->
+        <div data-role="page" id ="browseWhat" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+
+            <div>
+                <h3>What to pick up?</h3>
+                <ul data-role="listview" data-filter="true" data-inset = "true">
+                        
+                    <li>
+                        <a href="#">Fruit</a>
+                    </li>
+                        
+                    <li>
+                        <a href="#">Vegetable</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Dairy</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Meat</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Snack</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of Browse What to Pick up Function page -->
+
+        <!--whereToShop Function Where to pick up page start -->
+        <div data-role="page" id ="whereToShop" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+
+            <div>
+                <h3>Where do I shop?</h3>
+                <div data-role="container">
+                    <input type="search" id="search" value="search">
+                </div>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of whereToShop  Function page -->
+
+        <!--browseWhat Function Where to pick up page start -->
+        <div data-role="page" id ="browseWhat" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+
+            <div>
+                <h3>Who's picking it up?</h3>
+                <ul data-role="listview" data-filter="true" data-inset = "true">
+                        
+                    <li>
+                        <a href="#">Fruit</a>
+                    </li>
+                        
+                    <li>
+                        <a href="#">Vegetable</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Dairy</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Meat</a>
+                    </li>
+
+                    <li>
+                        <a href="#">Snack</a>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of Browse What to Pick up Function page -->
+        <!--browseWho Function Where to pick up page start -->
+        <div data-role="page" id ="browseWho" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+
+            <div>
+                <h3>Who's picking it up?</h3>
+                <ul data-role="listview" data-filter="true" data-inset = "true">
+                        
+                    <li>
+                        <a href=""><img src= "images/mom.png"> 03/16/13 - Mom
+                        <br/>
+                        Walmart
+                        <br/>
+                        Snack</a>
+                    </li>
+                        
+                    <li>
+                        <a href=""><img src= "images/dad.png"> 03/14/13 - Dad
+                        <br/>
+                        Ingles
+                        <br/>
+                        Fruit</a>
+
+                    </li>
+
+                    <li>
+                        <a href=""><img src= "images/dylan.png"> 03/15/13 - Dylan
+                        <br/>
+                        Target
+                        <br/>
+                        Dairy</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList" class = "ui-btn-active">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of browseWho to Pick up Function page -->
+
+        <!--browseDate Function  -->
+        <div data-role="page" id ="browseDate" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+            <div>
+                <h3>Do the browse by date</h3>
+                <div data-role = "fieldcontain">
+                    <label for="date">Date Input:</label>
+                    <input type="date" name="date" id="date" value=""  />
+                </div>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of Browse Date Needed up Function page -->
+
+        <!--browseNewsList page start -->
+        <div data-role="page" id ="browseNewsList" data-add-back-btn="true">
+
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+
+            <div>
+                <h3>Do the browse by News Stream</h3>
+            </div>
+
+            <ul data-role="listview" data-inset="true">
+                    
+                <li>
+                    <a href="#"><img src= "images/Dad.png"> 03/15/13 - Dad
+                    <br/>
+                    Walmart</a>
+                </li>
+                    
+                <li>
+                    <a href="#"><img src= "images/Mom.png"> 03/15/13 - Mom
+                    <br/>
+                    Publix</a>
+                </li>
+                    
+                <li>
+                    <a href="#"><img src= "images/Dylan.png"> 03/15/13 - Dylan
+                    <br/>
+                    CVS</a>
+                </li>
+                    
+                <li>
+                    <a href="#"><img src= "images/Dad.png"> 03/14/13 - Dad
+                    <br/>
+                    Kroger</a>
+                </li>
+                    
+                <li>
+                    <a href="#"><img src= "images/Mom.png"> 03/14/13 - Mom
+                    <br/>
+                    Publix</a>
+                </li>
+            </ul>
+
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList" class = "ui-btn-active">List</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of Browse NewsList up Function page -->
+
+        <!--About page start *************************** -->
+        <div data-role="page" id ="about" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+            <div data-role="collapsible" data-theme="a" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-inset = "true">
+
+                <h3>1 - About the author</h3>
+                <p>
+                    Michael Usry was given his first computer, an Atari 800, by his mother when he was 12 years old.  Now, over 30 years later, he's finishing his childhood dream of becoming a programmer, ah Software Developer.
+                </p>
+            </div>
+            <div data-role="collapsible" data-theme="a" data-content-theme="d" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-inset = "true">
+                <h3>gh-pages</h3>
+                <ul data-role="listview" data-inset="true">
+                    <li>
+                        <a href ="http://mbusry.github.com/gh-pages/gold/" rel="external">Gold Page</a>
+                    </li>
+                    <li>
+                        <a href ="http://mbusry.github.com/gh-pages/bronze" rel="external">Bronze Page</a>
+                    </li>
+                    <li>
+                        <a href = "#browseNewsList">News Stream</a>
+                    </li>
+
+                </ul>
+            </div>
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+                        <li>
+                            <a href="#main">Home</a>
+                        </li>
+                        <li>
+                            <a href="#add">Add</a>
+                        </li>
+                        <li >
+                            <a href="#browseNewsList">List</a>
+                        </li>
+                        <li>
+                            <a href="#about" class = "ui-btn-active">About</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- End of Browse NewsList up Function page -->
+        <!--ADD page start *************************** -->
+        <div data-role="page" id ="add" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h5><a href = "#main">iWill</a></h5>
+            </div>
+            <form  action="" id="firstForm">
+                <legend>
+                    Get these things
+                </legend>
+                <!-- <span>* fields are required.</span> -->
+                <label for="assigned">Assigned to:</label>
+                <select id="assignedPerson">
+                    <option value="Mom">Mom</option>
+                    <option value="Dad">Dad</option>
+                    <option value="Dylan">Dylan</option>
+                </select>
+                <div data-role = "fieldcontain">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name = "email" placeholder="jon@me.com"/>
+                </div>
+
+                <div data-role = "fieldcontain">
+                    <label for="shop">Where to shop:</label>
+                    <input type="text" id="shop" name = "shop" />
+                </div>
+
+                <div data-role = "fieldcontain">
+                    <label for="when">When is it needed:</label>
+                    <input type="date" id="when" name = "when"/>
+                </div>
+
+                <fieldset data-role = "controlgroup">
+                    <legend>
+                        Grocery Item
+                    </legend>
+                    <input type="radio"  value="Fruit" id = "fruit" name = "groceryItem" data-inset = "true"/>
+                    <label for="fruit">Fruit</label>
+                    <input type="radio"  value="Veggie" id = "veg" name = "groceryItem" />
+                    <label for="veg">Vegetable</label>
+                    <input type="radio"  value="Dairy" id = "dairy" name = "groceryItem" />
+                    <label for="dairy">Dairy</label>
+                    <input type="radio"  value="Meat" id = "meat" name = "groceryItem" />
+                    <label for="meat">Meat</label>
+                    <input type="radio"  value="Snack" id = "snack" name = "groceryItem" />
+                    <label for="snack">Snack</label>
+                </fieldset>
+
+                <div data-role = "fieldcontain">
+                    <label for="qty">Item Quantity: (Numbers only)</label>
+                    <input type="text" id="qty" name="qty" number = "true">
+                </div>
+
+                <div data-role = "fieldcontain">
+                    <label for="notes">*Notes/Instructions (Required)</label>
+                    <textarea class = "required" id = "notes"></textarea>
+                </div>
+
+                <div data-role = "fieldcontain">
+                    <input type="submit" value="Save it." data-theme = "a" />
+                    <input type="reset" value="Clear it." data-theme = "c"/>
+                </div>
+                <!-- This is the error dialog for fields that are required -->
+                <a href = "#error" id = "errorID" data-rel = "dialog" data-transition = "pop">Testing errors</a>
+
+                <div data-role="footer" data-position="fixed">
+                    <div data-role="navbar">
+                        <ul>
+                            <li>
+                                <a href="#main">Home</a>
+                            </li>
+                            <li>
+                                <a href="#add" class = "ui-btn-active">Add</a>
+                            </li>
+                            <li >
+                                <a href="#browseNewsList">List</a>
+                            </li>
+                            <li>
+                                <a href="#about">About</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- End of Add Function page -->
+        <!--error page start *************************** -->
+        <div data-role="dialog" id ="error">
+            <div data-role="header" data-position="fixed">
+                <h5>Oops</h5>
+            </div>
+            <div data-role = "content">
+                <ul>
+                    <li>
+                        Please provide the instructions
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+        <script src="js/main_sample.js" type="text/javascript"></script>
+
+    </body>
+</html>
