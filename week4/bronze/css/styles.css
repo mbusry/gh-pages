@@ -1,0 +1,80 @@
+/* Main CSS style sheet.  Michael Usry MiU 0313  */
+
+* 	{
+	list-style: none;
+}
+
+body {
+	background-image:  url(../images/background.png);
+}
+
+img.cta {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+
+#errorMsg{
+	font-size: 22px;
+	color:red;
+}
+
+img.center {
+	display: block; margin-left: auto; margin-right: auto; 
+}
+
+p {
+  font-style:italic;
+  font-family:times,serif;
+}
+
+h1 {
+	margin: 0px;
+	border: 1px solid #000;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 24px;
+	font-style: normal;
+	color: black;
+	text-align: center;
+	width: 100%;
+
+}
+
+h5 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-style: bold;
+	color: white;
+	text-align: center;
+}
+
+h2 {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 22px;
+	font-style: normal;
+	color: gray;
+}
+a {
+	text-decoration: none;
+	letter-spacing: .1em;
+}
+
+a:visited {
+	text-decoration: none;
+	letter-spacing: .1em;
+}
+
+a:hover {
+	color:red;
+	letter-spacing: .1em;
+}
+
+
+legend{
+	font-weight: bold;
+	color:teal;
+}
+
+:focus{
+	border: 1px sold:blue;
+}
