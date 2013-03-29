@@ -1,0 +1,39 @@
+/* Project 4 CSS style sheet.  Michael Usry MiU 0313  */
+
+
+img.cta {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#errorMsg {
+	font-size: 22px;
+	color: red;
+}
+
+img.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+p {
+	font-style: italic;
+	font-family: times, serif;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+:focus {
+	border: 1px sold :red;
+}
+
+#errorID {
+	display: none;
+}
+label.error {
+	display: block;
+	margin: 5px 5px;
+	color: red;
+}
