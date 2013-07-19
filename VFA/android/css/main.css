@@ -1,5 +1,16 @@
-h1
-{
+
+
+
+body
+{ 
+background-image:url('../images/hands.jpg');
+background-repeat:no-repeat;
+background-attachment:fixed;
+padding: 35px;
+}
+
+
+h1 {
 font: Ariel;
 font-size: 175%;
 font-weight: bold;
@@ -7,14 +18,75 @@ color: black;
 
 }
 
-p
-{
+p {
 font: Georgia;
 font-size: 100%;
 color: #666;
 }
 
-li
-{
-	color:#777;
+ul {
+list-style: none;
+}
+
+ul li label{
+	font: tahoma;
+	color: #220;
+	font-weight: bolder;
+	
+}
+
+#weather-ul {
+	padding-top:20;
+	padding-right: 6;
+	color: red;
+	position:absolute;
+	top:20px;
+	right:40px;
+}
+
+
+.temp {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 56px;
+	font-weight: bolder;
+	color: #00F;
+	vertical-align: top;
+	display: inline;
+	height: auto;
+	width: auto;
+	background-color: #CF0;
+}
+
+#title {
+	padding-top: 100px;
+	font-family: serif;
+	font-size: 72px;
+	text-align: center;
+
+}
+
+#courseInfo {
+	font-family: serif;
+	font-size: 33px;
+	text-align: center;
+}
+
+#courseDesc {
+	font-family: serif;
+	font-size: 24px;
+	font-weight: bolder;
+	color: #000;
+	height: auto;
+	width: auto;
+	background-color: #C90;
+	text-align: center;
+	border: thin solid #444;
+}
+
+button{
+	font-family: serif;
+	font-size: 20px;
+	font-weight: bold;
+	color: #000;
+	background-color: #C90;
 }

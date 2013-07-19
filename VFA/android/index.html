@@ -1,5 +1,5 @@
 <!doctype html>
-<!--Michael Usry, VFA 1307 Android-->
+<!--Michael Usry, VFA 1307 iOS-->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -15,20 +15,25 @@
     </head>
 
     <body>
-        <!--MAIN PAGE START -->
-        <div data-role = "page" id ="main" data-theme = "c">
-            <div class = "cta">
-                Place Holder - Android
-                <a href = "#add"><img src = "images/placeHolder.png" class = "cta" /></a>
-            </div>
+        <div id = 'title'>My Prayer</div>
+        <div id = 'courseInfo'>
+          Michael Usry
+          AVF1307
+        </div>
+        <div id = 'courseDesc'>
+            My goal is to finish a prayer journal.  On week2 I've added instagram button and weather info into the form section
+        </div>
+        <div style="text-align:center;">
+        <a href = 'form.html'><button id  = 'addThoughts'>Add Daily Thoughts</button></a>
+        <a href = 'insta.html'><button id = 'instagram'>Instagram</button></a>
+        </div>
 
-            <div data-role="container">
-                <input type="search" id="search" placeholder="search">
-            </div>
 
-            <div data-role = "fieldcontain" data-theme = "c" data-content-theme = "a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-inset = "true">
-                <h3>
-                <center>
+        <script src="js/main.js" type="text/javascript"></script>
+
+    </body>
+</html>
+>
                     Browse
                 </center></h3>
                 <ul data-role="listview" data-inset="true">
