@@ -19,20 +19,39 @@
  *
  */
 
-	$(function() { 
+	var latitude = '',
+		longitude = '';
+
+	$(function() {
+		
+		navigator.geolocation.getCurrentPosition(gotPosition,gotError);
+
 		var 	apiKey = "5qwnnspwyfufndc3ffxmy25t",
-			url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=48.85,2.35&fx=no&format=json";
+				url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=48.85,2.35&fx=no&format=json";
+				url2 = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=" + lat + "," + long + "&fx=no&format=json";
 
 		$.getJSON(url, screenOutput);
 	});
-
+	
+	var gotPosition = function(position){
+		var lat = position.coords.latitude,
+			Long = position.coords.longitude;
+		console.log(long);
+		
+			};
+	
+	function gotError(error) {
+    alert('code: '    + error.code    + '\n' +
+          'message: ' + error.message + '\n');
+}
+	
 	var screenOutput = function(info) {
 		console.log(info.data.current_condition[0]);
 		console.log("Current temp: " + info.data.current_condition[0].temp_F);
 		console.log("The skys are: " + info.data.current_condition[0].weatherDesc[0].value);
 		console.log("The skys are: " + info.data.current_condition[0].weatherIconUrl[0].value);
 
-	var 	temp = info.data.current_condition[0].temp_F,
+	var temp 	= info.data.current_condition[0].temp_F,
 		skyDesc = info.data.current_condition[0].weatherDesc[0].value,
 		skyIcon = info.data.current_condition[0].weatherIconUrl[0].value;
 		weatherOutput =  "<span class = 'temp'><img src = '" + skyIcon + "'/>" + temp + "</span>";

@@ -1,53 +1,58 @@
-
-
-
-body
-{ 
-background-image:url('../images/hands.jpg');
-background-repeat:no-repeat;
-background-attachment:fixed;
-padding: 35px;
+body {
+	background-image: url('../images/hands.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100% !important;
+	padding: 5%;
 }
 
-
 h1 {
-font: Ariel;
-font-size: 175%;
-font-weight: bold;
-color: black;
-
+	font: Ariel;
+	font-size: 150%;
+	font-weight: bold;
+	color: black;
 }
 
 p {
-font: Georgia;
-font-size: 100%;
-color: #666;
+	font: Georgia;
+	font-size: 100%;
+	color: #666;
 }
 
 ul {
-list-style: none;
+	list-style: none;
 }
 
-ul li label{
+ul li label {
 	font: tahoma;
 	color: #220;
-	font-weight: bolder;
-	
 }
 
 #weather-ul {
-	padding-top:20;
+	padding-top: 20;
 	padding-right: 6;
 	color: red;
-	position:absolute;
-	top:20px;
-	right:40px;
+	position: absolute;
+	top: 10%;
+	right: 10%;
+}
+
+@media all and (max-width: 498px) {
+	#weather-ul {
+	padding-top: 20;
+	padding-right: 6;
+	color: red;
+	position: absolute;
+	top: 25%;
+	right: 7%;
+	}
+
 }
 
 
 .temp {
 	font-family: "Times New Roman", Times, serif;
-	font-size: 56px;
+	font-size: 125%;
 	font-weight: bolder;
 	color: #00F;
 	vertical-align: top;
@@ -58,22 +63,21 @@ ul li label{
 }
 
 #title {
-	padding-top: 100px;
+	padding-top: 10%;
 	font-family: serif;
-	font-size: 72px;
+	font-size: 4em;
 	text-align: center;
-
 }
 
 #courseInfo {
 	font-family: serif;
-	font-size: 33px;
+	font-size: 1.3em;
 	text-align: center;
 }
 
 #courseDesc {
 	font-family: serif;
-	font-size: 24px;
+	font-size: 1.3em;
 	font-weight: bolder;
 	color: #000;
 	height: auto;
@@ -83,10 +87,113 @@ ul li label{
 	border: thin solid #444;
 }
 
-button{
+@media all and (max-width: 498px) {
+	#courseDesc {
 	font-family: serif;
-	font-size: 20px;
+	font-size: 1.1em;
+	font-weight: bolder;
+	color: #000;
+	height: auto;
+	width: auto;
+	background-color: #C90;
+	text-align: center;
+	border: thin solid #444;
+	}
+}
+
+
+@media all and (min-width: 499px) {
+	.contact-buttons {
+		top: 21%;
+		border: 2px solid #a1a1a1;
+		background: #ddd;
+		padding: 5px;
+		width: 100px;
+		border-radius: 20px;
+		position:absolute;
+		right: 50px;
+		/*top: 125px;*/		
+		text-align: center;
+		line-height: 2em;
+		font-size: 1.3em;
+	}
+}
+
+@media all and (max-width: 498px) {
+	#contactButton {
+		top: 50%;
+		border: 2px solid #a1a1a1;
+		background: #eee;
+		padding: 5px;
+		width: 65px;
+		border-radius: 10px;
+		float: top;
+		text-align: justify;
+		line-height: 2em;
+		position:absolute;
+		left: 25px;
+		top: 70px;
+		text-align: center;
+		line-height: 1em;
+		font-size: 1em;
+	}
+
+}
+
+@media all and (max-width: 498px) {
+	#pixButton {
+		top: 50%;
+		border: 2px solid #a1a1a1;
+		background: #eee;
+		padding: 5px;
+		width: 65px;
+		border-radius: 10px;
+		float: top;
+		text-align: justify;
+		line-height: 2em;
+		position:absolute;
+		left: 110px;
+		top: 70px;
+		text-align: center;
+		line-height: 1em;
+		font-size: 1em;
+	}
+
+}
+
+@media all and (max-width: 498px) {
+	#vidButton {
+		top: 50%;
+		border: 2px solid #a1a1a1;
+		background: #eee;
+		padding: 5px;
+		width: 65px;
+		border-radius: 10px;
+		float: top;
+		text-align: justify;
+		line-height: 2em;
+		position:absolute;
+		left: 200px;
+		top: 70px;
+		text-align: center;
+		line-height: 1em;
+		font-size: 1em;
+	}
+
+}
+
+
+button {
+	font-family: serif;
+	font-size: large;
 	font-weight: bold;
 	color: #000;
-	background-color: #C90;
+	text-align: center;
+}
+
+#prayer {
+	max-height: 400px;
+	height: 60%;
+	max-width: 500px;
+	width: 65%;
 }

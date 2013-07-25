@@ -1,0 +1,110 @@
+body {
+	background-image: none;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: 100%;
+	padding: 5%;
+}
+
+h1 {
+	font: Ariel;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: black;
+}
+
+p {
+	font: Georgia;
+	font-size: 1em;
+	color: #666;
+}
+
+ul {
+	list-style: none;
+}
+
+ul li label {
+	font: tahoma;
+	color: #220;
+	font-weight: bolder;
+}
+
+#weather-ul {
+	padding-top: 20;
+	padding-right: 6;
+	color: red;
+	position: absolute;
+	top: 10%;
+	right: 10%;
+}
+
+.temp {
+	font-family: "Times New Roman", Times, serif;
+	font-size: 1.2em;
+	font-weight: bolder;
+	color: #00F;
+	vertical-align: top;
+	display: inline;
+	height: auto;
+	width: auto;
+	background-color: #CF0;
+}
+
+#title {
+	padding-top: 10%;
+	font-family: serif;
+	font-size: 4em;
+	text-align: center;
+}
+
+#courseInfo {
+	font-family: serif;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+#courseDesc {
+	font-family: serif;
+	font-size: 1.5em;
+	font-weight: bolder;
+	color: #000;
+	height: auto;
+	width: auto;
+	background-color: #C90;
+	text-align: center;
+	border: thin solid #444;
+}
+
+.contact-buttons {
+	top: 50%;
+	border: 2px solid #a1a1a1;
+	background:red;
+	padding: 5px;
+	width:300px;
+	border-radius:20px;
+	float:top;
+	text-align: center;
+	line-height: 2em;
+	/*line-height: 150%;
+	border: thick solid #444;
+	float: right;
+	color: #cde;
+	float: left;
+	top: 30%;
+	font-size: 1.2em;*/
+}
+
+button {
+	font-family: serif;
+	font-size: large;
+	font-weight: bold;
+	color: #000;
+	text-align: center;
+}
+
+#prayer {
+	max-height: 400px;
+	height: 60%;
+	max-width: 500px;
+	width: 65%;
+}
