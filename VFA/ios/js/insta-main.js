@@ -11,10 +11,10 @@ $(function (){
 var screenOutput = function(info) {
 	console.log(info);
 	
-	$("#data-msg").html("<h2>Church Results</h2");
+	$("#insta-msg").html("<h2>Church Results</h2");
 	
 	$.each(info.data, function(index, photo) {
-		var 	rez = photo.images.thumbnail.url,
+		var rez = photo.images.thumbnail.url,
 			fn = photo.user.full_name,
 			un = photo.user.username,
 			pu = photo.user.id,

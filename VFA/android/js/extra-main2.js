@@ -27,7 +27,7 @@ $(function() {
 
 // gets the geolocation and outputs current weather info to the screen
 var gotPosition = function(position) {
-	var lat = position.coords.latitude, Long = position.coords.longitude, apiKey = "5qwnnspwyfufndc3ffxmy25t", url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=48.85,2.35&fx=no&format=json";
+	var lat = position.coords.latitude, Long = position.coords.longitude, apiKey = "5qwnnspwyfufndc3ffxmy25t", url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=48.85,2.35&fx=no&format=json",
 	url2 = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=" + lat + "," + Long + "&fx=no&format=json";
 	console.log("lat and Long are: " + lat + " " + Long);
 	console.log(url2);
@@ -46,7 +46,7 @@ var screenOutput = function(info) {
 	console.log("The skys are: " + info.data.current_condition[0].weatherDesc[0].value);
 	console.log("The skys are: " + info.data.current_condition[0].weatherIconUrl[0].value);
 
-	var temp = info.data.current_condition[0].temp_F, skyDesc = info.data.current_condition[0].weatherDesc[0].value, skyIcon = info.data.current_condition[0].weatherIconUrl[0].value;
+	var temp = info.data.current_condition[0].temp_F, skyDesc = info.data.current_condition[0].weatherDesc[0].value, skyIcon = info.data.current_condition[0].weatherIconUrl[0].value,
 	weatherOutput = "<span class = 'temp'><img src = '" + skyIcon + "'/>" + temp + "</span>";
 	console.log(weatherOutput);
 	$("#weather-li").replaceWith(weatherOutput);
@@ -103,6 +103,40 @@ var captureVideoSuccess = function(mediaFiles) {
 var captureVideoError = function(error) {
     navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 };
+
+var screenOutputMap = function(info) {
+	console.log(info.data.current_condition[0]);
+
+	var temp = info.data.current_condition[0].temp_F;
+	var skyDesc = info.data.current_condition[0].weatherDesc[0].value;
+	skyIcon = info.data.current_condition[0].weatherIconUrl[0].value;
+	mapOutput = "<span class = 'temp'><img src = '" + skyIcon + "'/>" + temp + "</span>";
+	console.log(mapOutput);
+	$("#mapoutput-li").replaceWith(mapOutput);
+};
+
+
+var gotMapPosition = function(position) {
+	var lat = position.coords.latitude;
+	var Long = position.coords.longitude;
+	var apiKey = "5qwnnspwyfufndc3ffxmy25t";
+	var url = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=48.85,2.35&fx=no&format=json",
+	var url2 = "http://api.worldweatheronline.com/free/v1/weather.ashx?key=" + apiKey + "&q=" + lat + "," + Long + "&fx=no&format=json";
+	console.log("lat and Long are: " + lat + " " + Long);
+	console.log(url2);
+
+	$.getJSON(url2, screenOutputMap);
+
+};
+
+
+
+$('#mapButton').on('click', function() {
+	console.log("I clicked mapButton");
+	navigator.geolocation.getCurrentPosition(gotMapPosition, gotError);
+
+
+});
 
 
 
